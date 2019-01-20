@@ -2,7 +2,8 @@ var blogposts = [{
         postTitle: "So it begins...",
         postDate: "1/21/19",
         postImage: "../images/",
-        postSummary: "This will be the first post."
+        postSummary: "This will be the first post.",
+        postTags: ["#firstpost", "#announcement", "#coding", "#art", "#anerrantpeach"]
     }
 ]
 
@@ -17,7 +18,7 @@ var blogpost = {
 }
 
 var h3 = {
-    color: "#b6fadc",
+    color: "#f7f6ed",
     backgroundColor: "#915f6d",
     margin: "auto",
     marginTop: "3em",
