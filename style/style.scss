@@ -7,6 +7,7 @@ $colors: (
     red: #d53a2a,
     navy: #1f0274,
     grey: #7b7788,
+    offwhite: #f7f6ed,
     lightgrey: #b0aac4,
     darkgrey: #4c4a54
 );
@@ -15,12 +16,17 @@ $colors: (
     @return map-get($colors, $color-name)
 };
 
+html {
+    height: 100%;
+}
+
 body {
     font-family: "Poppins", sans-serif; 
 }
 
 .col-md-10 {
-    background-color: colors(lightmint);
+    background-color: colors(offwhite);
+    min-height: 100vh;
 
     #devdiary {
         background-color: colors(mauve);
@@ -38,10 +44,45 @@ body {
             width: 10%;
         }
     }
+
+    h3 {
+        color: colors(offwhite);
+        background-color: colors(mauve);
+        margin: auto;
+        margin-top: 3em;
+        width: 60%;
+        font-size: 2em;
+        padding: 0.5em;
+        box-shadow: 0px 2px 10px colors(darkgrey);
+    }
+
+    a {
+        text-decoration: none;
+        color: colors(darkgrey);
+    }
+
+    #postdiv {
+        color: colors(mauve);
+        background-color: colors(offwhite);
+        margin: auto;
+        width: 60%;
+        font-size: 1.5em;
+        padding: 2em;
+        box-shadow: 0px 2px 10px colors(darkgrey);
+
+        h5 {
+            text-align: right;
+        }
+    }
+
+    #post {
+        visibility: hidden;
+        position: fixed;
+        z-index: 100;
+    }
 }
 
 .col-md-2 {
-    height: 100vh;
     color: colors(mauve);
     font-size: 2em;
     background-image: linear-gradient(to bottom right, #b6fadc, #915f6d);
@@ -53,11 +94,23 @@ body {
         font-size: 2em;
     }
 
+    a {
+        width: 100%;
+    }
+
     .button {
         color: colors(mint);
         background-color: colors(mauve);
         margin: 0.1em;
         padding: 0.3em;
+        width: 100%;
+        text-align: right;
         box-shadow: 2px 0px 10px colors(darkgrey) inset;
+    }
+
+
+    .social {
+        text-decoration: none;
+        color: colors(mauve);
     }
 }
