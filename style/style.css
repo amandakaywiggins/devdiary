@@ -1,0 +1,43 @@
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.col-md-10 {
+  background-color: #c9dbd3;
+}
+
+.col-md-10 #devdiary {
+  background-color: #915f6d;
+  color: #b6fadc;
+  font-size: 5em;
+  -webkit-box-shadow: 0px 2px 10px #4c4a54;
+          box-shadow: 0px 2px 10px #4c4a54;
+}
+
+.col-md-10 #devdiary img {
+  width: 10%;
+}
+
+.col-md-2 {
+  height: 100vh;
+  color: #915f6d;
+  font-size: 2em;
+  background-image: -webkit-gradient(linear, left top, right bottom, from(#b6fadc), to(#915f6d));
+  background-image: linear-gradient(to bottom right, #b6fadc, #915f6d);
+  background-color: #b6fadc;
+  -webkit-box-shadow: 2px 0px 10px #4c4a54 inset;
+          box-shadow: 2px 0px 10px #4c4a54 inset;
+}
+
+.col-md-2 h2 {
+  font-family: "Oswald", sans-serif;
+  font-size: 2em;
+}
+
+.col-md-2 button {
+  color: #b6fadc;
+  background-color: #915f6d;
+  margin: 0.1em;
+  border-radius: 6px;
+}
+/*# sourceMappingURL=style.css.map */

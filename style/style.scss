@@ -1,0 +1,56 @@
+$colors: (
+    mint: #b6fadc,
+    lightmint: #c9dbd3,
+    mauve: #915f6d,
+    lightmauve: #d6cdcf,
+    lavender: #dcd0ff,
+    red: #d53a2a,
+    navy: #1f0274,
+    grey: #7b7788,
+    lightgrey: #b0aac4,
+    darkgrey: #4c4a54
+);
+
+@function colors($color-name) {
+    @return map-get($colors, $color-name)
+};
+
+body {
+    font-family: "Poppins", sans-serif; 
+}
+
+.col-md-10 {
+    background-color: colors(lightmint);
+
+    #devdiary {
+        background-color: colors(mauve);
+        color: colors(mint);
+        font-size: 5em;
+        box-shadow: 0px 2px 10px colors(darkgrey);
+
+        img {
+            width: 10%;
+        }
+    }
+}
+
+.col-md-2 {
+    height: 100vh;
+    color: colors(mauve);
+    font-size: 2em;
+    background-image: linear-gradient(to bottom right, #b6fadc, #915f6d);
+    background-color: colors(mint);
+    box-shadow: 2px 0px 10px colors(darkgrey) inset;
+
+    h2 {
+        font-family: "Oswald", sans-serif;
+        font-size: 2em;
+    }
+
+    button {
+        color: colors(mint);
+        background-color: colors(mauve);
+        margin: 0.1em;
+        border-radius: 6px;
+    }
+}
