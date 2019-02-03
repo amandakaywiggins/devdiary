@@ -10,7 +10,7 @@ var config = {
 
 firebase.initializeApp(config);
 
-var diaryData = firebase.database();
+var diaryData = firebase.database().ref();
 
 $("#addEntry").on("click", function() {
 
