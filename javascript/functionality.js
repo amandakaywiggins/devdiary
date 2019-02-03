@@ -26,7 +26,7 @@ $("#addEntry").on("click", function() {
 
     console.log(newEntry);
 
-    dataDiary.collection("diary").add(newEntry).then(function(docRef) {
+    diaryData.collection("diary").add(newEntry).then(function(docRef) {
       console.log("Entry Added");
     }).catch(function(error) {
       console.log("Error");
