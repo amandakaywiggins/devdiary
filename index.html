@@ -4,13 +4,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no" />
         <title>Development Diary</title>
-        
+
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.5.0/flexslider.min.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Oswald|Poppins" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-        <link rel="stylesheet" href="style/style.css">
+        <link rel="stylesheet" href="style/style.min.css">
 
         <link rel="shortcut icon" type="image/png" href="images/morselogo.png"/>
 
@@ -20,17 +20,8 @@
     <body>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-10">
-                    <div class="row" id="post">
-                        <div class="col-md-12">
-                            <h3 id="postTitle"></h3>
-                            <div id="postdiv">
-                                <!--append article here-->
-                                <p id="postText"></p>
-                                <h5 id="postDate"></h5>
-                            </div>                            
-                        </div>
-                    </div>
+              <!--hidden elements-->
+                <div class="col-md-10" id="title">
                     <!--body-->
                     <div class="row" id="devdiary">
                         <div class="col-md-12">
@@ -44,7 +35,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-2" id="menu">
                     <!--nav-->
                     <div><h2>Menu</h2></div>
                     <div class="nav">
@@ -61,4 +52,5 @@
             </div>
         </div>
     </body>
+    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
 </html>

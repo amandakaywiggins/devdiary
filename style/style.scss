@@ -21,10 +21,10 @@ html {
 }
 
 body {
-    font-family: "Poppins", sans-serif; 
+    font-family: "Poppins", sans-serif;
 }
 
-.col-md-10 {
+#title {
     background-color: colors(offwhite);
     min-height: 100vh;
 
@@ -60,29 +60,9 @@ body {
         text-decoration: none;
         color: colors(darkgrey);
     }
-
-    #postdiv {
-        color: colors(mauve);
-        background-color: colors(offwhite);
-        margin: auto;
-        width: 60%;
-        font-size: 1.5em;
-        padding: 2em;
-        box-shadow: 0px 2px 10px colors(darkgrey);
-
-        h5 {
-            text-align: right;
-        }
-    }
-
-    #post {
-        visibility: hidden;
-        position: fixed;
-        z-index: 100;
-    }
 }
 
-.col-md-2 {
+#menu {
     color: colors(mauve);
     font-size: 2em;
     background-image: linear-gradient(to bottom right, #b6fadc, #915f6d);
@@ -96,6 +76,7 @@ body {
 
     a {
         width: 100%;
+        text-decoration: none;
     }
 
     .button {
@@ -113,4 +94,19 @@ body {
         text-decoration: none;
         color: colors(mauve);
     }
+}
+
+#form {
+  margin-top: 20px;
+  margin-bottom: 50px;
+
+  label {
+    font-size: 1.7em;
+    color: colors(mauve);
+  }
+
+  button {
+    background-color: colors(mauve);
+    padding: 10px;
+  }
 }
