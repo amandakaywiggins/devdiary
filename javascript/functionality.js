@@ -24,13 +24,15 @@ $("#addEntry").on("click", function() {
     console.log("Error");
   });
 
-  console.log(newEntry.title);
-  console.log(newEntry.text);
-  console.log(newEntry.tags);
-
   $("#title-input").val("");
   $("#text-input").val("");
   $("#tags-input").val("");
 
   return false;
+});
+
+diaryData.collection("diary").get().then((querySnapshot) => {
+  querySnapshot.forEach((doc) => {
+    console.log("${doc.id} => ${doc.data()}");
+  });
 });
