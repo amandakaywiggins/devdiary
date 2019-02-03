@@ -35,3 +35,4 @@ $("#addEntry").on("click", function() {
   console.log(newEntry.tags);
 
   alert("Entry successfully added");
+};
