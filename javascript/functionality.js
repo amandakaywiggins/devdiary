@@ -11,23 +11,30 @@ var config = {
 firebase.initializeApp(config);
 var diaryData = firebase.firestore();
 
-$("#addEntry").on("click", function() {
+$(document).ready(function() {
+  $("#addEntry").on("click", function() {
+    event.preventDefault();
 
-  var entryTitle = $("#title-input").val().trim();
-  var entryText = $("#text-input").val().trim();
-  var entryTags = $("#tags-input").val().trim();
+    var entryTitle = $("#title-input").val().trim();
+    var entryText = $("#text-input").val().trim();
+    var entryTags = $("#tags-input").val().trim();
 
-  diaryData.collection("diary").add({
-    title: entryTitle,
-    text: netryText,
-    tags: entryTags
-  }).then(function(docRef) {
-    console.log("Entry Added");
-  }).catch(function(error) {
-    console.log("Error");
+    var newEntry = {
+      title: entryTitle,
+      text: entryText,
+      tags: entryTags
+    }
+
+    console.log(newEntry);
+
+    dataDiary.collection("diary").add(newEntry).then(function(docRef) {
+      console.log("Entry Added");
+    }).catch(function(error) {
+      console.log("Error");
+    });
+
+    $("#title-input").val("");
+    $("#text-input").val("");
+    $("#tags-input").val("");
   });
-
-  $("#title-input").val("");
-  $("#text-input").val("");
-  $("#tags-input").val("");
 });
