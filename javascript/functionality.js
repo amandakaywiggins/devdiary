@@ -30,6 +30,4 @@ $("#addEntry").on("click", function() {
   $("#title-input").val("");
   $("#text-input").val("");
   $("#tags-input").val("");
-
-  return false;
 });
