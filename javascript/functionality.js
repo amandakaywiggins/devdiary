@@ -35,4 +35,23 @@ $("#addEntry").on("click", function() {
   console.log(newEntry.tags);
 
   alert("Entry successfully added");
-};
+
+  $("#title-input").val("");
+  $("#date-input").val("");
+  $("#text-input").val("");
+  $("#tags-input").val("");
+
+  return false;
+});
+
+entryData.ref().on("child_added", function(childSnapshot, prevChildKey) {
+
+  console.log(childSnapshot.val());
+
+  var eTitle = childSnapshot.val().title;
+  var eDate = childSnapshot.val().date;
+  var eText = childSnapshot.val().text;
+  var eTags = childSnapshot.val().tags;
+
+  $("#blogposts").append("<h1>" + eTitle + "</h1><div>" + eText + "<br><br>" + eDate + "<br><br>" + eTags);
+});
