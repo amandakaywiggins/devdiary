@@ -13,7 +13,7 @@ $("#addEntry").on("click", function() {
   var entryText = $("#text-input").val().trim();
   var entryTags = $("#tags-input").val().trim();
 
-  diaryData.collection(diary).add({
+  diaryData.collection("diary").add({
     title: entryTitle,
     text: netryText,
     tags: entryTags
