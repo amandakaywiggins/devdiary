@@ -17,11 +17,13 @@ $("#addEntry").on("click", function() {
     var entryTitle = $("#title-input").val().trim();
     var entryText = $("#text-input").val().trim();
     var entryTags = $("#tags-input").val().trim();
+    var entryDate = $("#date-input").val().trim();
 
     var newEntry = {
       title: entryTitle,
       text: entryText,
-      tags: entryTags
+      tags: entryTags,
+      date: entryDate
     }
 
     console.log(newEntry);
@@ -35,22 +37,18 @@ $("#addEntry").on("click", function() {
     $("#title-input").val("");
     $("#text-input").val("");
     $("#tags-input").val("");
+    $("#date-input").val("");
 });
 
 function buildEntires() {
-    diaryData.collection("diary").get().then(function(snapshot) {
-        snapshot.forEach(function(entry) {
-            console.log(snapshot.val().title);
-            console.log(snapshot.val().text);
-            console.log(snapshot.val().tags);
+    diaryData.collection("diary").get().then(function(querySnapchat) {
+      querySnapchat.forEach(function(doc) {
+        console.log(doc.id, "=>", doc.data());
 
-            title = snapshot.val().title;
-            text = snapshot.val().text;
-            tags = snapshot.val().tags;
-
-            $("#blogposts").prepend("<div><h1>" + title + "/h1><div>" + text + "<br>br>" + tags + "</div></div>");
-        });
+        $("#blogposts").append("<div class='blogpost'><h1>" + doc.data().title + "</h1><div><p>" + doc.data().text + "</p><br><br><h5>"
+         + doc.data().tags + "</h5><br><br><h5>" + doc.data().date + "</div>");
+      });
     });
 };
 
-document.onload(buildEntires);
+$(document).ready(buildEntires());
