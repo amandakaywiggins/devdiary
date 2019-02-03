@@ -26,7 +26,7 @@ $("#addEntry").on("click", function() {
 
     console.log(newEntry);
 
-    diaryData.collection("diary").add(newEntry).then(function(docRef) {
+    diaryData.collection("diary").add(newEntry).then(function(diaryData) {
       console.log("Entry Added");
     }).catch(function(error) {
       console.log("Error");
@@ -35,4 +35,18 @@ $("#addEntry").on("click", function() {
     $("#title-input").val("");
     $("#text-input").val("");
     $("#tags-input").val("");
+});
+
+diaryData.collection("diary").get().then(function(snapshot) {
+    snapshot.forEach(function(entry) {
+        console.log(snapshot.val().title);
+        console.log(snapshot.val().text);
+        console.log(snapshot.val().tags);
+
+        title = snapshot.val().title;
+        text = snapshot.val().text;
+        tags = snapshot.val().tags;
+
+        $("#blogposts").prepend("<h1>" + title + "/h1><div>" + text + "<br>br>" + tags + "</div>");
+    });
 });
