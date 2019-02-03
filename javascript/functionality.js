@@ -10,48 +10,34 @@ var config = {
 
 firebase.initializeApp(config);
 
-var diaryData = firebase.database();
+var diaryData = firebase.firestore();
 
 $("#addEntry").on("click", function() {
 
   var entryTitle = $("#title-input").val().trim();
-  var entryDate = $("#date-input").val().trim();
   var entryText = $("#text-input").val().trim();
   var entryTags = $("#tags-input").val().trim();
 
   var newEntry = {
 
     title: entryTitle,
-    date: entryDate,
     text: netryText,
     tags: entryTags
   };
 
-  diaryData.ref().push(newEntry);
+  diaryData.collection(diary).add({newEntry}).then(function(docRef) {
+    console.log("Entry Added");
+  }).catch(function(error) {
+    console.log("Error");
+  });
 
   console.log(newEntry.title);
-  console.log(newEntry.date);
   console.log(newEntry.text);
   console.log(newEntry.tags);
 
-  alert("Entry successfully added");
-
   $("#title-input").val("");
-  $("#date-input").val("");
   $("#text-input").val("");
   $("#tags-input").val("");
 
   return false;
-});
-
-diaryData.ref().on("child_added", function(childSnapshot, prevChildKey) {
-
-  console.log(childSnapshot.val());
-
-  var eTitle = childSnapshot.val().title;
-  var eDate = childSnapshot.val().date;
-  var eText = childSnapshot.val().text;
-  var eTags = childSnapshot.val().tags;
-
-  $("#blogposts").append("<h1>" + eTitle + "</h1><div>" + eText + "<br><br>" + eDate + "<br><br>" + eTags);
 });
