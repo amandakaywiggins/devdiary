@@ -10,7 +10,7 @@ var config = {
 
 firebase.initializeApp(config);
 
-var diaryData = firebase.database().ref();
+var diaryData = firebase.database();
 
 $("#addEntry").on("click", function() {
 
@@ -27,7 +27,7 @@ $("#addEntry").on("click", function() {
     tags: entryTags
   };
 
-  entryData.ref().push(newEntry);
+  diaryData.ref().push(newEntry);
 
   console.log(newEntry.title);
   console.log(newEntry.date);
@@ -44,7 +44,7 @@ $("#addEntry").on("click", function() {
   return false;
 });
 
-entryData.ref().on("child_added", function(childSnapshot, prevChildKey) {
+diaryData.ref().on("child_added", function(childSnapshot, prevChildKey) {
 
   console.log(childSnapshot.val());
 
