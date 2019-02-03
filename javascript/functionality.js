@@ -5,10 +5,6 @@ var config = {
   projectId: "devdiary-43fd6",
 };
 
-const firestore = firebase.firestore();
-const settings = {timestampsInSnapshots: true};
-firestore.settings(settings);
-
 firebase.initializeApp(config);
 var diaryData = firebase.firestore();
 
@@ -33,10 +29,4 @@ $("#addEntry").on("click", function() {
   $("#tags-input").val("");
 
   return false;
-});
-
-diaryData.collection("diary").get().then((querySnapshot) => {
-  querySnapshot.forEach((doc) => {
-    console.log("${doc.id} => ${doc.data()}");
-  });
 });
