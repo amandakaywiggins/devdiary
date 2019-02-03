@@ -7,6 +7,9 @@ var config = {
 
 firebase.initializeApp(config);
 var diaryData = firebase.firestore();
+const firestore = firebase.firestore();
+const settings = {timestampsInSnapshots: true};
+firestore.settings(settings);
 
 $("#addEntry").on("click", function() {
 
