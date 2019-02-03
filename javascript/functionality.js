@@ -5,6 +5,7 @@ var config = {
   projectId: "devdiary-43fd6",
 };
 
+firebase.initializeApp(config);
 var diaryData = firebase.firestore();
 
 $("#addEntry").on("click", function() {
