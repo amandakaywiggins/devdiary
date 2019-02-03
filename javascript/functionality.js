@@ -11,16 +11,6 @@ var config = {
 firebase.initializeApp(config);
 var diaryData = firebase.firestore();
 
-diaryData.collection("diary").add({
-    title: "Test",
-    text: "This is a test",
-    tags: "test"
-}).then(function(docRef) {
-    console.log("Entry Added");
-}).catch(function(error) {
-    console.log("Error");
-});
-
 $("#addEntry").on("click", function() {
 
   var entryTitle = $("#title-input").val().trim();
