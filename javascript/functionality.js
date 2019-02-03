@@ -37,16 +37,20 @@ $("#addEntry").on("click", function() {
     $("#tags-input").val("");
 });
 
-diaryData.collection("diary").get().then(function(snapshot) {
-    snapshot.forEach(function(entry) {
-        console.log(snapshot.val().title);
-        console.log(snapshot.val().text);
-        console.log(snapshot.val().tags);
+function buildEntires() {
+    diaryData.collection("diary").get().then(function(snapshot) {
+        snapshot.forEach(function(entry) {
+            console.log(snapshot.val().title);
+            console.log(snapshot.val().text);
+            console.log(snapshot.val().tags);
 
-        title = snapshot.val().title;
-        text = snapshot.val().text;
-        tags = snapshot.val().tags;
+            title = snapshot.val().title;
+            text = snapshot.val().text;
+            tags = snapshot.val().tags;
 
-        $("#blogposts").prepend("<h1>" + title + "/h1><div>" + text + "<br>br>" + tags + "</div>");
+            $("#blogposts").prepend("<div><h1>" + title + "/h1><div>" + text + "<br>br>" + tags + "</div></div>");
+        });
     });
-});
+};
+
+document.onload(buildEntires);
