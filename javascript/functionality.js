@@ -11,8 +11,7 @@ var config = {
 firebase.initializeApp(config);
 var diaryData = firebase.firestore();
 
-$(document).ready(function() {
-  $("#addEntry").on("click", function() {
+$("#addEntry").on("click", function() {
     event.preventDefault();
 
     var entryTitle = $("#title-input").val().trim();
@@ -36,5 +35,4 @@ $(document).ready(function() {
     $("#title-input").val("");
     $("#text-input").val("");
     $("#tags-input").val("");
-  });
 });
