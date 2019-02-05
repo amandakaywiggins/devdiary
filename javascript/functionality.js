@@ -11,9 +11,7 @@ var config = {
 firebase.initializeApp(config);
 var diaryData = firebase.firestore();
 
-$("#addEntry").on("click", function() {
-    event.preventDefault();
-
+$("#addEntry").on("click", function(e) {
     var entryTitle = $("#title-input").val().trim();
     var entryText = $("#text-input").val().trim();
     var entryTags = $("#tags-input").val().trim();
@@ -28,7 +26,7 @@ $("#addEntry").on("click", function() {
 
     console.log(newEntry);
 
-    diaryData.collection("diary").add(newEntry).then(function(diaryData) {
+    diaryData.collection("diary").add(newEntry).then(function(docRef) {
       console.log("Entry Added");
     }).catch(function(error) {
       console.log("Error");
@@ -38,11 +36,12 @@ $("#addEntry").on("click", function() {
     $("#text-input").val("");
     $("#tags-input").val("");
     $("#date-input").val("");
+    e.preventDefault();
 });
 
 function buildEntires() {
-    diaryData.collection("diary").get().then(function(querySnapchat) {
-      querySnapchat.forEach(function(doc) {
+    diaryData.collection("diary").get().then(function(querySnapshot) {
+      querySnapshot.forEach(function(doc) {
         console.log(doc.id, "=>", doc.data());
 
         $("#blogposts").append("<div class='blogpost'><h1>" + doc.data().title + "</h1><div><p>" + doc.data().text + "</p><br><br><h5>"
