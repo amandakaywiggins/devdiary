@@ -16,8 +16,11 @@ function buildEntires() {
       querySnapshot.forEach(function(doc) {
         console.log(doc.id, "=>", doc.data());
 
-        $("#blogposts").append("<div class='blogpost'><h1>" + doc.data().title + "</h1><div><p>" + doc.data().text + "</p><br><br><h5>"
-         + doc.data().tags + "</h5><br><br><h5>" + doc.data().date + "</div>");
+        var tags = doc.data().tags;
+        var tagsFormatted = tags.replace(/,/g, " ");
+
+        $("#blogposts").append("<div class='blogpost'><h1>" + doc.data().title + "</h1><div><p>" + doc.data().text + "</p><br><br><h5>" +
+        tagsFormatted + "</h5><br><br><h5>" + doc.data().date + "</div>");
       });
     });
 };
