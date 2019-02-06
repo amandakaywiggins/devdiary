@@ -25,7 +25,7 @@ function buildEntires() {
 $(document).ready(function() {
   $("#addEntry").on("click", function(e) {
       var entryTitle = $("#title-input").val().trim();
-      var entryText = $("#text-input").val().trim();
+      var entryText = $("#text-input").val().replace(/\n/g, '<br>');
       var entryTags = $("#tags-input").val().trim();
       var entryDate = $("#date-input").val().trim();
 
